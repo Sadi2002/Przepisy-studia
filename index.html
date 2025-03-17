@@ -4,6 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Przepisy</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f840a980ae.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="left-side">
+        <h2>Logo</h2>
+        <div class="panel">
+          <div class="panel-box">
+            <i class="fas fa-home"></i>
+            <span>Przepisy</span>
+          </div>
+          <div class="panel-box plus">
+            <i class="fas fa-plus"></i>
+            <span>Dodaj</span>
+          </div>
+          <div class="panel-box">
+            <i class="fas fa-info-circle"></i>
+            <span>Kalorie</span>
+          </div>
+        </div>
+        <div class="settings">
+          <i class="fas fa-cog"></i>
+          <span>Ustawienia</span>
+        </div>
+      </div>
+      <div class="middle">
+        <div class="kcal">
+          <div class="kcal-left">
+            <span>Kalorie</span>
+            <span class="sum-kcal">2000</span>
+          </div>
+          <div class="kcal-right">
+            <span>Pozostało</span>
+            <span class="sum-kcal">644</span>
+          </div>
+        </div>
+        <h1>Twój zdrowy posiłek</h1>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Wyszukaj przepis" />
+        </div>
+        <div class="filter">
+          <ul>
+            <li>Zupa <i class="fas fa-times"></i></li>
+            <li>Obiad <i class="fas fa-times"></i></li>
+            <li>Kolacja <i class="fas fa-times"></i></li>
+          </ul>
+        </div>
+        <h2>Posiłki:</h2>
+        <div class="all-recipes">
+          <ul>
+            <li><img src="przepis.png" alt="Przepis" /></li>
+            <li><img src="przepis.png" alt="Przepis" /></li>
+            <li><img src="przepis.png" alt="Przepis" /></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right-side">
+        <img src="przepis.png" alt="przepis" />
+        <ul>
+          <li><strong>500g </strong>mąki</li>
+          <li><strong>500g </strong>mąki</li>
+          <li><strong>500g </strong>mąki</li>
+          <li><strong>500g </strong>mąki</li>
+          <li><strong>500g </strong>mąki</li>
+        </ul>
+        <a href="#">Dodaj</a>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
