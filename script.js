@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <input type="text" id="meal-ingredients" style="width: 100%; margin-bottom: 10px;" />
             <label>Liczba kalorii:</label>
             <input type="number" id="meal-calories" style="width: 100%; margin-bottom: 10px;" />
+            <label>Tagi (oddzielone przecinkami):</label>
+            <input type="text" id="meal-tags" style="width: 100%; margin-bottom: 10px;" />
             <button id="save-recipe" style="margin-right: 10px;">Zapisz</button>
             <button id="close-modal">Zamknij</button>
         </div>
@@ -81,6 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
       .value.split(",")
       .map((ing) => ing.trim());
     const calories = document.getElementById("meal-calories").value;
+    const tags = document
+      .getElementById("meal-tags")
+      .value.split(",")
+      .map((tag) => tag.trim().toLowerCase());
 
     if (
       name &&
@@ -92,7 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const allRecipes = document.querySelector(".all-recipes ul");
 
       const newRecipe = document.createElement("li");
-      newRecipe.innerHTML = `<img src="${imageUrl}" alt="${name}" />`;
+      newRecipe.innerHTML = `<img src="${imageUrl}" alt="${name}" data-tags="${tags.join(
+        ","
+      )}" />`;
 
       newRecipe.addEventListener("click", function () {
         const rightSide = document.querySelector(".right-side");
@@ -110,5 +118,18 @@ document.addEventListener("DOMContentLoaded", function () {
       allRecipes.appendChild(newRecipe);
       modal.style.display = "none";
     }
+  });
+
+  const searchInput = document.querySelector(".search input");
+  searchInput.addEventListener("input", function () {
+    const searchTerm = searchInput.value.toLowerCase();
+    document.querySelectorAll(".all-recipes ul li img").forEach((img) => {
+      const tags = img.getAttribute("data-tags").split(",");
+      if (tags.includes(searchTerm) || searchTerm === "") {
+        img.parentElement.style.display = "block";
+      } else {
+        img.parentElement.style.display = "none";
+      }
+    });
   });
 });
